@@ -1,0 +1,19 @@
+#trainTime{
+    display: flex;
+    justify-content: space-between;
+    background-color: #800080;
+    line-height: 50px;
+    color:white;
+    padding:0 20px;
+    border-radius: 0 0 8px 8px;
+}
+#trainTime div{
+    display: flex;
+    flex-direction: column;
+}
+#trainTime div span:nth-child(1){
+    font-size:larger;
+}
+#trainTime div span:nth-child(2){
+    margin-top: -25px;
+}

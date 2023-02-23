@@ -1,0 +1,87 @@
+#pnrinput {
+    margin-top: 15vh;
+    text-align: center;
+}
+
+#pnrinput input {
+    margin: 0 10px;
+    border: none;
+    padding-left: 10px;
+    outline: 3px solid #00BFFF;
+    border-radius: 3px;
+    line-height: 30px;
+    width: 170px;
+}
+
+#pnrinput input:focus {
+    outline: 4px solid #1E90FF;
+    width: 190px;
+}
+
+#pnrinput button {
+    line-height: 32px;
+    width: 70px;
+    margin-left: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: #7B68EE;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#result {
+    text-align: center;
+}
+
+#resultcard {
+    text-align: center;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 550px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+}
+
+#station {
+    display: flex;
+    border-radius: 8px 8px 0 0;
+    justify-content: space-around;
+    background-color: #6B8E23;
+    padding: 10px;
+    color: white;
+}
+
+#trainName {
+    text-transform: uppercase;
+    background-color: #D8BFD8;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#passenger {
+    text-align: center;
+    background-color: #D8BFD8;
+    padding: 20px 0;
+    border-radius: 0 0 8px 8px;
+}
+
+@media screen and (max-width:750px) {
+    #resultcard {
+        margin: 0 auto;
+        width: 90vw;
+        margin-top: 70px;
+        margin-bottom: 10px;
+    }
+
+    #pnrinput {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5vh;
+    }
+    #pnrinput input, #pnrinput button{
+        margin:6px auto;
+    }
+}
