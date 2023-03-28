@@ -14,23 +14,27 @@ const CheckTrains = () => {
         console.log(station[name])
     }
 
-    const check = (e) => {
+    const check = async (e) => {
         e.preventDefault();
+        const loading = document.querySelector('.loading');
+        loading.style.display = 'flex';
 
         const options = {
             method: 'GET',
             url: 'https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations',
-            params: { fromStationCode: 'bju', toStationCode: 'bdts' },
+            params: { fromStationCode: station.from, toStationCode: station.to },
             headers: {
-                'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
-                'X-RapidAPI-Host': process.env.RAPIDAPI_HOST
+                'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_KEY,
+                'X-RapidAPI-Host': process.env.REACT_APP_RAPIDAPI_HOST
             }
         };
 
         axios.request(options).then(function (response) {
-            console.log(response.data);
-            setContainer(response.data);
+            loading.style.display = 'none';
+            console.log(response.data.data);
+            setContainer(response.data.data);
         }).catch(function (error) {
+            loading.style.display = 'none';
             console.error(error);
         });
     }
@@ -52,28 +56,31 @@ const CheckTrains = () => {
                     CHECK
                 </button>
             </div>
+            <div className='loading hide'>
+                <div className="loader"></div>
+                <p>Loading...</p>
+            </div>
             <div id='result'>
-                {container.map((item) => {
-                    return (
+            {container.map((item) => {
+                return (
                         <div id='resultcard' >
                             <div id='trainNameStatus'>
-                                <span><b> train number </b>:</span>
-                                <span> train name </span>
+                                <span><b>{item.train_number}</b>:</span>
+                                <span> {item.train_name}</span>
                             </div>
                             <div id='trainTime'>
                                 <div>
-                                    <span>source time</span>
-                                    <span>source date</span>
+                                    <span>Depart Time</span>
+                                    <span>{item.depart_time}</span>
                                 </div>
                                 <div>
-                                    <span>dest time</span>
-                                    <span>dest date</span>
+                                    <span>Arrival Time</span>
+                                    <span>{item.arrival_time}</span>
                                 </div>
                             </div>
                         </div>
-                    )
-                })
-                }
+                )
+            })}
             </div>
         </div>
     )

@@ -16,27 +16,30 @@ const GetFare = () => {
 
     const check = (e) => {
         e.preventDefault();
+        const loading = document.querySelector('.loading');
+        loading.style.display='flex';
 
-        const options = {
-            method: 'GET',
-            url: 'https://irctc1.p.rapidapi.com/api/v2/getFare',
-            params: { trainNo: '19038', fromStationCode: 'ST', toStationCode: 'BVI' },
-            headers: {
-                'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
-                'X-RapidAPI-Host': process.env.RAPIDAPI_HOST
-            }
-        };
+        // const options = {
+        //     method: 'GET',
+        //     url: 'https://irctc1.p.rapidapi.com/api/v2/getFare',
+        //     params: { trainNo: '19038', fromStationCode: 'ST', toStationCode: 'BVI' },
+        //     headers: {
+        //         'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
+        //         'X-RapidAPI-Host': process.env.RAPIDAPI_HOST
+        //     }
+        // };
 
-        axios.request(options).then(function (response) {
-            console.log(response.data);
-        }).catch(function (error) {
-            console.error(error);
-        });
+        // axios.request(options).then(function (response) {
+        //     console.log(response.data);
+        //     setContainer(response.data);
+        // }).catch(function (error) {
+        //     console.error(error);
+        // });
     }
 
     return (
         <div className="box">
-            <h2>Enter Station Code</h2>
+            <h2>Enter Details</h2>
             <div id='pnrinput'>
                 <input type='text' placeholder='TRAIN NO'
                     name='trainNo'
@@ -54,6 +57,10 @@ const GetFare = () => {
                     onClick={check}>
                     CHECK
                 </button>
+            </div>
+            <div className='loading hide'>
+                <div className="loader"></div>
+                <p>Loading...</p>
             </div>
             <div id='result'>
                 <div id='resultcard'>

@@ -95,7 +95,7 @@ input::-webkit-inner-spin-button {
 
 @media screen and (max-width:750px){
     #navbar{
-        height:30vh;
+        height:24vh;
         width:100vw;
         flex-direction: row;
         justify-content: space-between;
@@ -116,6 +116,7 @@ input::-webkit-inner-spin-button {
     #NavMenu{
         display: flex;
         flex-direction: row;
+        margin-top:10px
     }
     #NavMenu ul{
         height: 30px;
@@ -125,7 +126,7 @@ input::-webkit-inner-spin-button {
     }
     .box{
         margin-left:0;
-        margin-top: 30vh;
+        margin-top: 23vh;
         width:100vw;
         height: 80vh;
         margin-bottom: 10vh;

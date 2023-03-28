@@ -8,7 +8,7 @@ footer{
     right: 0;
     background-color: darkslateblue;
     width: 85vw;
-    display: flex;
+    display: none;
     color: white;
     font-family: 'Kanit', sans-serif;
     margin-left:15vw;

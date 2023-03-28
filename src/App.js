@@ -11,6 +11,7 @@ import Footer from './component/Footer';
 const Routing = () => {
   return(
     <Routes>
+
       <Route exact path='/'
         element={<Home/>}>
       </Route>
@@ -30,6 +31,7 @@ const Routing = () => {
       <Route path='/checkfare'
         element={<CheckFare/>}>
       </Route>
+      
     </Routes>
   )
 }
