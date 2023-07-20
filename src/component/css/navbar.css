@@ -4,6 +4,7 @@
     width: 85vw;
     height: 85vh;
     font-family: 'Lato', sans-serif;
+    margin-bottom: 15vh;
 }
 .box h2{
     text-align: center;
@@ -12,7 +13,8 @@
 }
 #navbar{
     text-align: center;
-    position: absolute;
+    position: fixed;
+    z-index: 5;
     width:15vw;
     height: 100vh;
     background-color:#000000;
