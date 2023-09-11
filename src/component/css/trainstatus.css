@@ -36,8 +36,10 @@
     color:white; 
 }
 #stats span:nth-child(3){
-    margin-right: 30px; 
+    margin-right: 10px;
+    margin-left: 40px;
     color:white;
+    font-weight: bold;
 }
 
 @media screen and (max-width:750px){
@@ -55,7 +57,7 @@
         color:white; 
     }
     #stats span:nth-child(3){
-        margin-left: 70px; 
+        margin-left: 10px; 
         color:white;
         width:15vw;
     }
