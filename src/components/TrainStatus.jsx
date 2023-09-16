@@ -4,7 +4,7 @@ import "./css/trainstatus.css";
 const TrainStatus = () => {
   const [train, setTrain] = useState("");
   const [day, setDay] = useState("");
-  const [container, setContainer] = useState();
+  // const [container, setContainer] = useState();
 
   let value;
   const handleChange = (e) => {
@@ -23,7 +23,7 @@ const TrainStatus = () => {
 
   const check = (e) => {
     e.preventDefault();
-    setContainer();
+    // setContainer();
     const loading = document.querySelector(".loading");
     loading.style.display = "flex";
 
@@ -42,17 +42,26 @@ const TrainStatus = () => {
       .then(function (response) {
         loading.style.display = "none";
         console.log(response.data.data);
-        setContainer(response.data.data);
+        // setContainer(response.data.data);
       })
       .catch(function (error) {
         console.error(error);
       });
   };
 
-  // const Result = (container) => {
-  //     let last_station = container.previous_stations.length-1;
-  //     return
-  // }
+
+  const container = {
+    train_number:12420,
+    ir_train_name:'Sikkim Mahananda Express',
+    std:'24-08-2023 08:16',
+    // new_message: 'Train is running late by 46 minutes',
+    previous_stations: [
+      { station_name: 'Ghaziabad Junction', etd: '09:14', },
+    ],
+    current_station_name:'New Khurja Junction',
+    delay:46,
+    eta:'10:17',
+  }
 
   return (
     <div className="box">
@@ -71,47 +80,47 @@ const TrainStatus = () => {
           name="startDay"
           value={day}
           onChange={handleDay}
-          style={{width:"224px"}}
+          style={{ width: "224px" }}
         ></input>
         <button type="submit" onClick={check}>
           CHECK
         </button>
       </div>
-      {container ? 
+      {container ?
         <>
           <div id="trainNameStatus">
-            <span style={{display:"inline-block", margin:"auto"}}>
+            <span style={{ display: "inline-block", margin: "auto" }}>
               <b> {container.train_number} </b>:
             </span>
-            <span style={{display:"inline-block", margin:"auto"}}> {container.ir_train_name} </span>
+            <span style={{ display: "inline-block", margin: "auto" }}> {container.ir_train_name} </span>
             <div>DOJ: {container.std} </div>
           </div>
 
           <div id="stats">
             {
-                container.new_message ?
-                <h5 style={{margin:"auto"}}>{container.new_message}</h5>
+              container.new_message ?
+                <h5 style={{ margin: "auto" }}>{container.new_message}</h5>
                 :
                 <>
-                <span>
-              <p>Last :</p>
-              <p>Upcoming : </p>
-              <p>Delay : </p>
-            </span>
-            <span>
-              <p> {container.previous_stations && container.previous_stations[container.previous_stations.length-1].station_name}</p>
-              <p> {container.current_station_name} </p>
-              <p> {container.delay}</p>
-            </span>
-            <span>
-              <p> {container.previous_stations && container.previous_stations[container.previous_stations.length-1].etd} </p>
-              <p> {container.eta} </p>
-            </span>
-            </>
+                  <span>
+                    <p>Last :</p>
+                    <p>Upcoming : </p>
+                    <p>Delay : </p>
+                  </span>
+                  <span>
+                    <p> {container.previous_stations && container.previous_stations[container.previous_stations.length - 1].station_name}</p>
+                    <p> {container.current_station_name} </p>
+                    <p> {container.delay}</p>
+                  </span>
+                  <span>
+                    <p> {container.previous_stations && container.previous_stations[container.previous_stations.length - 1].etd} </p>
+                    <p> {container.eta} </p>
+                  </span>
+                </>
             }
           </div>
         </>
-       :
+        :
         <div className="loading hide">
           <div className="loader"></div>
           <p>Loading...</p>

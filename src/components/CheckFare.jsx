@@ -33,11 +33,10 @@ const GetFare = () => {
       },
     };
 
-    axios
-      .request(options)
+    axios.request(options)
       .then(function (response) {
         loading.style.display = "none";
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setContainer(response.data.data);
       })
       .catch(function (error) {
@@ -80,7 +79,7 @@ const GetFare = () => {
       </div>
       <div id="result">
         <div id="resultcard">
-            <h3>General</h3>
+          <h3>General</h3>
           <div id="trainclass">
             {container && container.general &&
               container.general.map((item) => {
@@ -95,7 +94,7 @@ const GetFare = () => {
           </div>
         </div>
         <div id="resultcard">
-            <h3>Tatkal</h3>
+          <h3>Tatkal</h3>
           <div id="trainclass">
             {container && container.general &&
               container.tatkal.map((item) => {
