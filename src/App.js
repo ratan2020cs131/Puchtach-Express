@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './component/Navbar';
-import Home from './component/Home';
-import CheckPNR from './component/CheckPNR';
-import SearchTrains from './component/SearchTrains';
-import TrainStatus from './component/TrainStatus';
-import CheckFare from './component/CheckFare';
-import Footer from './component/Footer';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import CheckPNR from './components/CheckPNR';
+import SearchTrains from './components/SearchTrains';
+import TrainStatus from './components/TrainStatus';
+import CheckFare from './components/CheckFare';
+import Footer from './components/Footer';
 
 const Routing = () => {
   return(
