@@ -4,7 +4,7 @@ import "./css/trainstatus.css";
 const TrainStatus = () => {
   const [train, setTrain] = useState("");
   const [day, setDay] = useState("");
-  // const [container, setContainer] = useState();
+  const [container, setContainer] = useState();
 
   let value;
   const handleChange = (e) => {
@@ -23,7 +23,7 @@ const TrainStatus = () => {
 
   const check = (e) => {
     e.preventDefault();
-    // setContainer();
+    setContainer();
     const loading = document.querySelector(".loading");
     loading.style.display = "flex";
 
@@ -42,7 +42,7 @@ const TrainStatus = () => {
       .then(function (response) {
         loading.style.display = "none";
         console.log(response.data.data);
-        // setContainer(response.data.data);
+        setContainer(response.data.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -50,18 +50,18 @@ const TrainStatus = () => {
   };
 
 
-  const container = {
-    train_number:12420,
-    ir_train_name:'Sikkim Mahananda Express',
-    std:'24-08-2023 08:16',
-    // new_message: 'Train is running late by 46 minutes',
-    previous_stations: [
-      { station_name: 'Ghaziabad Junction', etd: '09:14', },
-    ],
-    current_station_name:'New Khurja Junction',
-    delay:46,
-    eta:'10:17',
-  }
+  // const container = {
+  //   train_number:12420,
+  //   ir_train_name:'Sikkim Mahananda Express',
+  //   std:'24-08-2023 08:16',
+  //   // new_message: 'Train is running late by 46 minutes',
+  //   previous_stations: [
+  //     { station_name: 'Ghaziabad Junction', etd: '09:14', },
+  //   ],
+  //   current_station_name:'New Khurja Junction',
+  //   delay:46,
+  //   eta:'10:17',
+  // }
 
   return (
     <div className="box">
